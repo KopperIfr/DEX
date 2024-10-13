@@ -9,8 +9,8 @@ error Same_Token(address tokenA, address tokenB);
 
 contract DEX {
 
-    function swap(address _tokenA, address _tokenB, address _to, uint256 _amount) public 
-    {
+    function swap(address _tokenA, address _tokenB, address _to, uint256 _amount) public {
+        
         // If tokenA and tokenB are same revert..
         if(_tokenA == _tokenB) revert Same_Token(_tokenA, _tokenB);
 
