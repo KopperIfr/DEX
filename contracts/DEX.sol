@@ -23,30 +23,35 @@ contract DEX
         // Calculatin tokenB amount..
         uint256 amountB = _amount * rate;
         
-        // Checking balance..
+        // Checking balance of wallet tokenA..
         if(tokenA.balanceOf(msg.sender) < _amount) revert Insuficient_Balance(msg.sender, _amount);
 
+        // Checking balance of wallet tokenB..
+        if(tokenB.balanceOf(_walletTokenB) < amountB) revert Insuficient_Balance(_walletTokenB, _amount);
+
         // Transfering token A..
-        bool success = tokenA.transferFrom(msg.sender, _walletTokenB, _amount);
-        if(!success) revert('No enough');
+        tokenA.transferFrom(msg.sender, _walletTokenB, _amount);
 
         // Transfering token B..
         tokenB.transferFrom(_walletTokenB, msg.sender, amountB);
     }
 
-    function swapAtoB2(uint256 _amount, address _walletTokenB) public {
-    // Verificar que el usuario A tiene suficiente balance de Token A
-    require(tokenA.balanceOf(msg.sender) >= _amount, "Insufficient Token A balance");
+        function swapBtoA(uint256 _amount, address _walletTokenA) public 
+    {
+        // Calculatin tokenB amount..
+        uint256 amountB = _amount / rate;
+        
+        // Checking balance of wallet tokenA..
+        if(tokenB.balanceOf(msg.sender) < _amount) revert Insuficient_Balance(msg.sender, _amount);
 
-    // Verificar que el usuario B tiene suficiente balance de Token B
-    uint256 amountB = _amount * rate;
-    require(tokenB.balanceOf(_walletTokenB) >= amountB, "Insufficient Token B balance");
+        // Checking balance of wallet tokenB..
+        if(tokenA.balanceOf(_walletTokenA) < amountB) revert Insuficient_Balance(_walletTokenA, _amount);
 
-    // Transferir Token A de Usuario A (msg.sender) a Usuario B (_walletTokenB)
-    require(tokenA.transferFrom(msg.sender, _walletTokenB, _amount), "Token A transfer failed");
+        // Transfering token A..
+        tokenB.transferFrom(msg.sender, _walletTokenA, _amount);
 
-    // Transferir Token B de Usuario B (_walletTokenB) a Usuario A (msg.sender)
-    require(tokenB.transferFrom(_walletTokenB, msg.sender, amountB), "Token B transfer failed");
-}
+        // Transfering token B..
+        tokenA.transferFrom(_walletTokenA, msg.sender, amountB);
+    }
 
 }
