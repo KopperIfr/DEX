@@ -19,7 +19,7 @@ const deployToken = async (deploy, deployer, name, symbol, initSupply, maxSupply
 const deployDEX = async (deploy, deployer, tokenA, tokenB) => {
     const contractDeployment = await deploy('DEX', {
         from: deployer,
-        args:[2],
+        args:[],
         log: true
     })
     console.log(` DEX deployed at: ${contractDeployment.address}`);

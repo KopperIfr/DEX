@@ -18,7 +18,7 @@ contract DEX {
         IERC20 tokenA = IERC20(_tokenA);
         IERC20 tokenB = IERC20(_tokenB);
 
-        // Let's supose totalSupply is the liquidity of each token..
+        // Assuming totalSupply is the liquidity of each token..
         uint256 rate = (tokenA.totalSupply() / tokenB.totalSupply()) * 1e18;
 
         uint256 amountToReceive;
@@ -39,7 +39,7 @@ contract DEX {
         // Transfering tokens..
         tokenA.transferFrom(msg.sender, _to, _amount);
         tokenB.transferFrom(_to, msg.sender, amountToReceive);
-        
+
     }
 
 }

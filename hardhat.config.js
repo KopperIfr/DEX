@@ -1,6 +1,7 @@
 require('hardhat-deploy');
 require('hardhat-deploy-ethers');
 require('@nomiclabs/hardhat-ethers');
+require('@nomicfoundation/hardhat-toolbox');
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
