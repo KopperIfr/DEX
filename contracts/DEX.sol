@@ -7,9 +7,7 @@ error Insuficient_Balance(address sender, uint256 amount);
 error Unsoported_Token(address token, address sender);
 error Same_Token(address tokenA, address tokenB);
 
-contract DEX 
-{
-    uint256 public rate;
+contract DEX {
 
     function swap(address _tokenA, address _tokenB, address _to, uint256 _amount) public 
     {
@@ -21,10 +19,16 @@ contract DEX
         IERC20 tokenB = IERC20(_tokenB);
 
         // Let's supose totalSupply is the liquidity of each token..
-        rate = (tokenA.totalSupply() / tokenB.totalSupply());
-        // tokenA(10.000), tokenB(8.500), rate = 1,17
-        uint256 amountToReceive = rate * _amount;
-        // _amount = 1.000
+        uint256 rate = (tokenA.totalSupply() / tokenB.totalSupply()) * 1e18;
+
+        uint256 amountToReceive;
+        
+        // Calculating amount to receive..
+        if(tokenA.totalSupply() < tokenB.totalSupply()) {
+            amountToReceive = rate * _amount;
+        } else {
+            amountToReceive = rate / _amount;
+        }
 
         // Checking balance of sender..
         if(tokenA.balanceOf(msg.sender) < _amount) revert Insuficient_Balance(msg.sender, _amount);
