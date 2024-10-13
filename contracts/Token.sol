@@ -7,7 +7,7 @@ error Exceded_Max_Supply(uint256 supply, uint256 max_supply, address minter);
 error Only_Admin(address caller, address admin);
 error Amount_Required(address sender, uint256 amount);
 
-contract TokenFactory is ERC20 
+contract Token is ERC20 
 {
     uint256 public immutable maxSupply;
     address public admin;
