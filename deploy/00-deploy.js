@@ -19,7 +19,7 @@ module.exports = async ({getNamedAccounts, deployments}) => {
     const tokenB = await deployToken(deploy, tokenBadmin, 'TokenB', 'TKB', INITIAL_SUPPLY_TOKEN_B, MAX_SUPPLY_TOKEN_B,);
 
     // Deploying DEX..
-    const DEX = await deployDEX(deploy, dexDeployer, tokenA.address, tokenB.address);
+    const DEX = await deployDEX(deploy, dexDeployer);
 
     return { tokenA, tokenB, DEX }
 

@@ -4,54 +4,37 @@ pragma solidity >=0.8.0;
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 error Insuficient_Balance(address sender, uint256 amount);
+error Unsoported_Token(address token, address sender);
+error Same_Token(address tokenA, address tokenB);
 
 contract DEX 
 {
-    IERC20 public tokenA;
-    IERC20 public tokenB;
     uint256 public rate;
 
-    constructor(address _tokenA, address _tokenB, uint256 _rate) 
+    function swap(address _tokenA, address _tokenB, address _to, uint256 _amount) public 
     {
-        tokenA = IERC20(_tokenA);
-        tokenB = IERC20(_tokenB);
-        rate = _rate;
-    }
+        // If tokenA and tokenB are same revert..
+        if(_tokenA == _tokenB) revert Same_Token(_tokenA, _tokenB);
 
-    function swapAtoB(uint256 _amount, address _walletTokenB) public 
-    {
-        // Calculatin tokenB amount..
-        uint256 amountB = _amount * rate;
-        
-        // Checking balance of wallet tokenA..
+        // Declaring tokens..
+        IERC20 tokenA = IERC20(_tokenA);
+        IERC20 tokenB = IERC20(_tokenB);
+
+        // Let's supose totalSupply is the liquidity of each token..
+        rate = (tokenA.totalSupply() / tokenB.totalSupply());
+        // tokenA(10.000), tokenB(8.500), rate = 1,17
+        uint256 amountToReceive = rate * _amount;
+        // _amount = 1.000
+
+        // Checking balance of sender..
         if(tokenA.balanceOf(msg.sender) < _amount) revert Insuficient_Balance(msg.sender, _amount);
 
-        // Checking balance of wallet tokenB..
-        if(tokenB.balanceOf(_walletTokenB) < amountB) revert Insuficient_Balance(_walletTokenB, _amount);
+        // Checking balance receiver..
+        if(tokenB.balanceOf(_to) < amountToReceive) revert Insuficient_Balance(msg.sender, amountToReceive);
 
-        // Transfering token A..
-        tokenA.transferFrom(msg.sender, _walletTokenB, _amount);
-
-        // Transfering token B..
-        tokenB.transferFrom(_walletTokenB, msg.sender, amountB);
-    }
-
-        function swapBtoA(uint256 _amount, address _walletTokenA) public 
-    {
-        // Calculatin tokenB amount..
-        uint256 amountB = _amount / rate;
-        
-        // Checking balance of wallet tokenB..
-        if(tokenB.balanceOf(msg.sender) < _amount) revert Insuficient_Balance(msg.sender, _amount);
-
-        // Checking balance of wallet tokenA..
-        if(tokenA.balanceOf(_walletTokenA) < amountB) revert Insuficient_Balance(_walletTokenA, _amount);
-
-        // Transfering token A..
-        tokenB.transferFrom(msg.sender, _walletTokenA, _amount);
-
-        // Transfering token B..
-        tokenA.transferFrom(_walletTokenA, msg.sender, amountB);
+        // Transfering tokens..
+        tokenA.transferFrom(msg.sender, _to, _amount);
+        tokenB.transferFrom(_to, msg.sender, amountToReceive);
     }
 
 }
