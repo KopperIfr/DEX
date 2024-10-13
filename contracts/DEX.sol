@@ -41,10 +41,10 @@ contract DEX
         // Calculatin tokenB amount..
         uint256 amountB = _amount / rate;
         
-        // Checking balance of wallet tokenA..
+        // Checking balance of wallet tokenB..
         if(tokenB.balanceOf(msg.sender) < _amount) revert Insuficient_Balance(msg.sender, _amount);
 
-        // Checking balance of wallet tokenB..
+        // Checking balance of wallet tokenA..
         if(tokenA.balanceOf(_walletTokenA) < amountB) revert Insuficient_Balance(_walletTokenA, _amount);
 
         // Transfering token A..
