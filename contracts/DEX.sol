@@ -25,9 +25,9 @@ contract DEX {
         
         // Calculating amount to receive..
         if(tokenA.totalSupply() < tokenB.totalSupply()) {
-            amountToReceive = rate * _amount;
+            amountToReceive = (rate * _amount) / 1e18;
         } else {
-            amountToReceive = rate / _amount;
+            amountToReceive = (rate / _amount) / 1e18;
         }
 
         // Checking balance of sender..
@@ -40,5 +40,5 @@ contract DEX {
         tokenA.transferFrom(msg.sender, _to, _amount);
         tokenB.transferFrom(_to, msg.sender, amountToReceive);
     }
-    
+
 }
