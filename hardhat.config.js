@@ -14,8 +14,14 @@ module.exports = {
     ]
   },
   namedAccounts: {
-    deployer: {
+    tokenAadmin: {
       default: 0
+    },
+    tokenBadmin: {
+      default: 1
+    },
+    dexDeployer: {
+      default: 2
     }
   },
   etherscan: {
