@@ -1,4 +1,4 @@
-const { ethers } = require("hardhat");
+const { ethers, deployments } = require("hardhat");
 const { expect } = require("chai");
 
 describe("DEX Contract", function () {
