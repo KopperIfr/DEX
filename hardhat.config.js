@@ -5,9 +5,9 @@ require('@nomicfoundation/hardhat-toolbox');
 require('dotenv').config();
 /** @type import('hardhat/config').HardhatUserConfig */
 
-WALLET_1 = process.env.PRIVATE_API_KEY;
-WALLET_2 = process.env.WALLET_2;
-WALLET_3 = process.env.WALLET_3;
+WALLET_ARTHURO = process.env.WALLET_ARTHURO;
+WALLET_JORGE = process.env.WALLET_JORGE;
+WALLET_MARIA = process.env.WALLET_MARIA;
 
 module.exports = {
   solidity: {
@@ -24,7 +24,7 @@ module.exports = {
     sepolia: {
       chainId: 11155111,
       url: process.env.SEPOLIA_RPC_URL,
-      accounts: [WALLET_1, WALLET_2, WALLET_3]
+      accounts: [WALLET_ARTHURO, WALLET_JORGE, WALLET_MARIA]
     },
     localhost: {
       url: "http://127.0.0.1:8545",
@@ -32,10 +32,10 @@ module.exports = {
     }
   },
   namedAccounts: {
-    tokenAadmin: {
+    deployerTokenA: {
       default: 0
     },
-    tokenBadmin: {
+    deployerTokenB: {
       default: 1
     },
     dexDeployer: {

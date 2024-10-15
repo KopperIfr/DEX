@@ -16,7 +16,7 @@ const deployToken = async (deploy, deployer, name, symbol, initSupply, maxSupply
 }
 
 
-const deployDEX = async (deploy, deployer, tokenA, tokenB) => {
+const deployDEX = async (deploy, deployer) => {
     const contractDeployment = await deploy('DEX', {
         from: deployer,
         args:[],
