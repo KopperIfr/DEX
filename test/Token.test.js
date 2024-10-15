@@ -1,10 +1,13 @@
 const { expect } = require("chai");
-const { ethers } = require("hardhat");
+const { ethers, deployments } = require("hardhat");
 
 describe("Token Contract", function () {
     let Token, token, owner, addr1, addr2;
 
     beforeEach(async function () {
+
+        await deployments.fixture(['all']);
+
         [owner, addr1, addr2] = await ethers.getSigners();
 
         // Deploy Token contract with initialSupply = 1000 and maxSupply = 5000

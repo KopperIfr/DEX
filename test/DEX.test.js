@@ -5,6 +5,9 @@ describe("DEX Contract", function () {
     let Token, DEX, TokenA, TokenB, dex, deployerTokenA, deployerTokenB, dexDeployer, user1;
 
     beforeEach(async function () {
+
+        await deployments.fixture(['all']);
+
         [deployerTokenA, deployerTokenB, dexDeployer, user1] = await ethers.getSigners();
         
         TokenA = await ethers.getContract('Token', deployerTokenA);
