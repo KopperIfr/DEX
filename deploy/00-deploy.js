@@ -18,7 +18,7 @@ module.exports = async ({getNamedAccounts, deployments}) => {
 
     // Deploying contracts..
     const TokenA = await deployToken(deploy, deployerTokenA, 'TokenA', 'TKA', INITIAL_SUPPLY_TOKEN_A, MAX_SUPPLY_TOKEN_A);
-    const TokenB = await deployToken(deploy, deployerTokenB, 'TokenB', 'TKB', INITIAL_SUPPLY_TOKEN_B, MAX_SUPPLY_TOKEN_B);
+    const TokenB = await deployToken(deploy, deployerTokenA, 'TokenB', 'TKB', INITIAL_SUPPLY_TOKEN_B, MAX_SUPPLY_TOKEN_B);
     const DEX = await deployDEX(deploy, deployerTokenA);
 
 
