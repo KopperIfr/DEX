@@ -5,12 +5,10 @@ describe("Token Contract", function () {
     let Token, token, owner, addr1, addr2;
 
     beforeEach(async function () {
-        Token = await ethers.getContractFactory("Token");
         [owner, addr1, addr2] = await ethers.getSigners();
 
         // Deploy Token contract with initialSupply = 1000 and maxSupply = 5000
-        token = await Token.deploy(1000, 5000, "My Token", "MTK");
-        await token.waitForDeployment();
+        token = await ethers.getContract('Token', owner);
     });
 
     it("Should set the right owner", async function () {

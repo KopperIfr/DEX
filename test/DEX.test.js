@@ -2,32 +2,20 @@ const { ethers, deployments } = require("hardhat");
 const { expect } = require("chai");
 
 describe("DEX Contract", function () {
-    let Token, DEX, tokenA, tokenB, dex, owner, addr1, addr2;
+    let Token, DEX, TokenA, TokenB, dex, deployerTokenA, deployerTokenB, dexDeployer, user1;
 
     beforeEach(async function () {
-        Token = await ethers.getContractFactory("Token");
-        DEX = await ethers.getContractFactory("DEX");
+        [deployerTokenA, deployerTokenB, dexDeployer, user1] = await ethers.getSigners();
+        
+        TokenA = await ethers.getContract('Token', deployerTokenA);
+        TokenB = await ethers.getContract('Token', deployerTokenB);
+        DEX = await ethers.getContract('DEX', dexDeployer);
 
-        [owner, addr1, addr2] = await ethers.getSigners();
-
-        // Deploy two tokens (Token A and Token B)
-        tokenA = await Token.deploy(1000, 5000, "Token A", "TKA");
-        tokenB = await Token.deploy(850, 5000, "Token B", "TKB");
-
-        await tokenA.deployed();
-        await tokenB.deployed();
-
-        // Deploy DEX contract
-        dex = await DEX.deploy();
-        await dex.waitForDeployment();
-
-        // Mint some tokens to addr1
-        await tokenA.mint(1000, addr1.address);
-        await tokenB.mint(850, addr2.address);
+        console.log(DEX.target);
     });
 
     it("Should revert if same tokens are passed for swap", async function () {
-        await expect(dex.swap(tokenA.address, tokenA.address, addr1.address, 100)).to.be.revertedWith("Same_Token");
+        await expect(DEX.swap(TokenA.target, TokenA.target, user1, 100)).to.be.revertedWith("Same_Token");
     });
 
     it("Should perform a successful swap from Token A to Token B", async function () {
