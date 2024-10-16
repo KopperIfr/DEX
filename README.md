@@ -49,7 +49,7 @@ Si las direcciones de ambos tokens son iguales, se revierte la transacción. El 
 - **Unsoported_Token:** Se emitiria cuando uno de los tokens involucrados en la operación no es reconocido o soportado por el contrato. 
 - **Same_Token:** Se emitiria cuando se intenta intercambiar un token por sí mismo.
 
-###COMPILACION
+### COMPILACION
 Ejecutar el siguiente comando en tu terminal
 ```bash
 npm run compile
@@ -62,32 +62,53 @@ npm run test
 (Esto ejecutará el test para verificar el comportamiento de los contratos)
 
  
-DESPLIEGUE DE LOS CONTRATOS
+### DESPLIEGUE DE LOS CONTRATOS
 Networks disponibles:
-
 Ethereum Sepolia
+
 New RPC URL: https://sepolia.infura.io/v3/
+
 Chain ID: 11155111
 Currency symbol: SepoliaETH
+
 Block explorer: https://sepolia.etherscan.io/
+
 Faucet: https://sepoliafaucet.com/
 
-Binance Smart Chain (testnet) 
-Network: Smart Chain – Testnet
-New RPC URL: https://data-seed-prebsc-1-s1.binance.org:8545/
-Chain ID: 97
-Currency symbol: BNB
-Block explorer: https://testnet.bscscan.com
-Faucet: https://testnet.bnbchain.org/faucet-smart
-Para desplegar Contratos  en Ethereum Sepolia (hardhat):
-npm run deploy --network ethereum_sepolia_testnet
-Para verificar los contratos (hardhat)
-$ npx hardhat verify --network ethereum_sepolia_testnet
+Binance Smart Chain (testnet)
 
-Verificaciones de los contratos (etherscan):
-- TokenA: https://sepolia.etherscan.io/address/0x2114DDf9Af5EB807D08FDE3e9597fdDC77F897fF
-- TokenB: https://sepolia.etherscan.io/address/0x0f635c01838Cb5c61C14F4469312159bf6a868Ee
-- DEX: https://sepolia.etherscan.io/address/0x1966Bae430F38f6A0ceEF28Be0A80ebC1ccA2313
+Network: Smart Chain – Testnet
+
+New RPC URL: https://data-seed-prebsc-1-s1.binance.org:8545/
+
+Chain ID: 97
+
+Currency symbol: BNB
+
+Block explorer: https://testnet.bscscan.com
+
+Faucet: https://testnet.bnbchain.org/faucet-smart
+
+- **Para desplegar Contratos  en Ethereum Sepolia (hardhat):**
+```bash
+npm run deploy --network ethereum_sepolia_testnet
+```
+Para verificar los contratos (hardhat)
+```bash
+$ npx hardhat verify --network ethereum_sepolia_testnet
+```
+## Verificaciones de los contratos (etherscan):
+
+TokenA: `https://sepolia.etherscan.io/address/0x2114DDf9Af5EB807D08FDE3e9597fdDC77F897fF`
+TokenB: `https://sepolia.etherscan.io/address/0x0f635c01838Cb5c61C14F4469312159bf6a868Ee`
+DEX: `https://sepolia.etherscan.io/address/0x1966Bae430F38f6A0ceEF28Be0A80ebC1ccA2313`
+
+ - **Transacciones tokenA**
+`https://sepolia.etherscan.io/address/0x2114DDf9Af5EB807D08FDE3e9597fdDC77F897fF`
+Transacciones tokenB
+`https://sepolia.etherscan.io/address/0x0f635c01838Cb5c61C14F4469312159bf6a868Ee`
+Transacciones DEX
+`https://sepolia.etherscan.io/address/0x1966Bae430F38f6A0ceEF28Be0A80ebC1ccA2313`
 
 
 
