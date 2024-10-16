@@ -1,15 +1,13 @@
-PROYECTO DEX
+# PROYECTO DEX
 
-Objetivos
-El principal objetivo de este proyecto es desarrollar una DEX descentralizado donde los usuarios puedan crear e intercambiar 2 tokens (Token A y Token B) mediante el uso de Smart Contracts basados en la blockchain de Ethereum.
+## Objetivos
+El principal objetivo de este proyecto es desarrollar un DEX descentralizado donde los usuarios puedan crear e intercambiar 2 tokens (Token A y Token B) mediante el uso de Smart Contracts basados en la blockchain de Ethereum.
 
-Smart Contracts y funciones.
-
-TokenContract 
- ## Token.sol
-Este contrato permite la creación y administración de un token ERC20 personalizado, con funciones de emisión (minting) y quema (burning) controladas por un administrador (centralizado). Implementa un suministro máximo fijo (maxSupply), lo que asegura que no se puedan emitir tokens de forma ilimitada. 
+## Token.sol
+Este contrato permite la creación y administración de un **token ERC20** personalizado, con funciones de emisión (minting) y quema (burning) controladas por un administrador (centralizado). Implementa un suministro máximo fijo (maxSupply), lo que asegura que no se puedan emitir tokens de forma ilimitada. 
 Una ventaja del contrato es que permite la administración del mismo, los tokens sin un control explícito pueden generar una inflación no deseada, disminuyendo el valor del token para los holders. Además el administrador tiene la capacidad de transferir el control de las operaciones de emisión y quema a otro administrador.
-Variables Principales y Parámetros del Constructor
+
+### Variables Principales y Parámetros del Constructor
 - **maxSupply:** Suministro máximo de tokens que se pueden crear, no puede modificarse posteriormente.
 - **admin:** Dirección del administrador del contrato. Esta dirección tiene privilegios especiales, como la capacidad de acuñar (mint) y quemar (burn) tokens, además de cambiar la dirección del administrador.
 - **_initialSupply:** Suministro inicial de tokens a crear.
@@ -17,18 +15,17 @@ Variables Principales y Parámetros del Constructor
 - **_name:** Nombre del token.
 - **_symbol:** Símbolo del token.
 
-Funciones
-mint(uint256 _amount, address _to):** Permite mintear nuevos tokens, solo el administrador puede llamar a esta función. Revierte si la cantidad es 0 o si se excede el suministro máximo. Los tokens se mintean en la dirección del administrador y luego se transfieren a la dirección especificada _to, si se especifica.
-burn(uint256 _amount):** Permite quemar (burn) tokens, solo el administrador puede llamar a esta función. Realiza la quema de tokens en la cuenta del administrador.
-setAdmin(address _admin):** Permite cambiar la dirección del administrador. Solo el administrador esta autorizado para realizarlo.
+### Funciones
+- **mint(uint256 _amount, address _to):** Permite mintear nuevos tokens, solo el administrador puede llamar a esta función. Revierte si la cantidad es 0 o si se excede el suministro máximo. Los tokens se mintean en la dirección del administrador y luego se transfieren a la dirección especificada _to, si se especifica.
+- **burn(uint256 _amount):** Permite quemar (burn) tokens, solo el administrador puede llamar a esta función. Realiza la quema de tokens en la cuenta del administrador.
+- **setAdmin(address _admin):** Permite cambiar la dirección del administrador. Solo el administrador esta autorizado para realizarlo.
 
-Errores personalizados
-Exceded_Max_Supply:** Se emitiria cuando una operación intenta incrementar el suministro de tokens más allá del maxSupply.
-Only_Admin:** Se emitiria cuando una dirección no administradora intenta realizar una operación restringida.
-Amount_Required:** Se emitiria cuando se intenta mintear una cantidad de tokens igual o inferior a cero.
+### Errores personalizados
+- **Exceded_Max_Supply:** Se emitiria cuando una operación intenta incrementar el suministro de tokens más allá del maxSupply.
+- **Only_Admin:** Se emitiria cuando una dirección no administradora intenta realizar una operación restringida.
+- **Amount_Required:** Se emitiria cuando se intenta mintear una cantidad de tokens igual o inferior a cero.
 
 
-DEXContract
 ## DEX.sol
 Este contrato permite realizar intercambios entre dos tokens ERC20 de manera descentralizada. Facilita swaps simples y directos entre tokens en función de la cantidad de tokens disponibles (asumidos como liquidez). Puede utilizarse en proyectos que deban realizar swaps entre sus propios tokens ERC20 sin depender de exchanges más grandes, ecosistemas cerrados y de bajo volumen.
 
