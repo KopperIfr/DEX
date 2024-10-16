@@ -94,8 +94,14 @@ Transacciones tokenA
 Transacciones tokenB
  - https://sepolia.etherscan.io/address/0x0f635c01838Cb5c61C14F4469312159bf6a868Ee
 
+
+(En cuanto a las transacciones del contrato DEX, en la testnet no han sido satisfactorias,
+pero en local sí. No nos ha dado tiempo a descrifar el porqué de esto!)
+
 Transacciones DEX
  - https://sepolia.etherscan.io/address/0x1966Bae430F38f6A0ceEF28Be0A80ebC1ccA2313
+
+
 
 
 
