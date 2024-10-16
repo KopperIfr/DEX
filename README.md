@@ -59,6 +59,8 @@ Ejecutar el test
 ```bash
 npm run test
 ```
+![alt text](https://github.com/KopperIfr/DEX/blob/main/images/local-test.png "Logo Title Text 1")
+
 (Esto ejecutará el test para verificar el comportamiento de los contratos)
 
  
@@ -123,7 +125,7 @@ https://sepolia.etherscan.io/address/0x1966Bae430F38f6A0ceEF28Be0A80ebC1ccA2313
 
 
 
-![alt text](https://github.com/KopperIfr/DEX/blob/main/images/local-test.png "Logo Title Text 1")
+
 
 
 
