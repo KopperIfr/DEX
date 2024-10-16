@@ -99,3 +99,10 @@ Contratos verificados en etherscan:
 
 
 ======================================================
+
+![alt text](https://github.com/KopperIfr/DEX/blob/main/images/Captura%20de%20pantalla%202024-10-16%20a%20las%2021.12.53.png "Logo Title Text 1")
+
+
+
+
+
