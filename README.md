@@ -32,7 +32,7 @@ Este contrato permite realizar intercambios entre dos tokens ERC20 de manera des
 
 **Función Principal**
 
-**swap(address _tokenA, address _tokenB, address _to, uint256 _amount):  
+**swap(address _tokenA, address _tokenB, address _to, uint256 _amount):**  
 
 - Permite intercambiar una cantidad específica de un token ERC20 por otro ERC20. Estos son sus parámetros:
 
