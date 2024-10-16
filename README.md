@@ -99,7 +99,7 @@ Para verificar los contratos (hardhat)
 ```bash
 $ npx hardhat verify --network ethereum_sepolia_testnet
 ```
-## Verificaciones de los contratos (etherscan):
+## Verificaciones de los contratos:
 
 TokenA: https://sepolia.etherscan.io/address/0x2114DDf9Af5EB807D08FDE3e9597fdDC77F897fF
 
