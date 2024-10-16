@@ -52,12 +52,16 @@ Si las direcciones de ambos tokens son iguales, se revierte la transacción. El 
 ### COMPILACION
 Ejecutar el siguiente comando en tu terminal
 ```bash
-npm run compile
+ hh compile
+```
+Limpiar Cache
+```bash
+hh cleant
 ```
 
 Ejecutar el test
 ```bash
-npm run test
+hh test
 ```
 ![alt text](https://github.com/KopperIfr/DEX/blob/main/images/local-test.png "Logo Title Text 1")
 
@@ -93,12 +97,9 @@ Faucet: https://testnet.bnbchain.org/faucet-smart
 
 - **Para desplegar Contratos  en Ethereum Sepolia (hardhat):**
 ```bash
-npm run deploy --network ethereum_sepolia_testnet
+ hh deploy --network ethereum_sepolia_testnet
 ```
-Para verificar los contratos (hardhat)
-```bash
-$ npx hardhat verify --network ethereum_sepolia_testnet
-```
+
 ## Verificaciones de los contratos:
 
 TokenA: https://sepolia.etherscan.io/address/0x2114DDf9Af5EB807D08FDE3e9597fdDC77F897fF
