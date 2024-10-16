@@ -10,9 +10,9 @@ const deployToken = async (deploy, deployer, name, symbol, initSupply, maxSupply
         ],
         log: true
     })
-    console.log(`${name} deployed at: ${contractDeployment.address}`);
-    console.log(`${name} deployer is: ${contractDeployment.receipt.from}`);
-    console.log("===============================");
+    // console.log(`${name} deployed at: ${contractDeployment.address}`);
+    // console.log(`${name} deployer is: ${contractDeployment.receipt.from}`);
+    // console.log("===============================");
     return contractDeployment;
 }
 
@@ -23,9 +23,9 @@ const deployDEX = async (deploy, deployer) => {
         args:[],
         log: true
     })
-    console.log(`DEX deployed at: ${contractDeployment.address}`);
-    console.log(`DEX deployer is: ${contractDeployment.receipt.from}`);
-    console.log("===============================");
+    // console.log(`DEX deployed at: ${contractDeployment.address}`);
+    // console.log(`DEX deployer is: ${contractDeployment.receipt.from}`);
+    // console.log("===============================");
     return contractDeployment;
 }
 
