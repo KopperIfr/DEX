@@ -34,6 +34,7 @@ No hay un sistema para agregar o retirar liquidez, lo que limita las funcionalid
 
 No maneja tarifas ni incentivos para proveedores de liquidez, lo cual es una característica común en los DEX modernos.
 Función Principal
+
 swap(address _tokenA, address _tokenB, address _to, uint256 _amount):  Permite intercambiar una cantidad específica de un token ERC20 por otro ERC20. Estos son sus parámetros:
 -_tokenA: Dirección del contrato del token que el usuario desea intercambiar.
 _tokenB: Dirección del contrato del token que el usuario desea recibir.
@@ -99,3 +100,8 @@ Contratos verificados en etherscan:
 
 
 ======================================================
+
+
+
+
+
