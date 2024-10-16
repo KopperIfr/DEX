@@ -70,7 +70,7 @@ hh test
  
 ### DESPLIEGUE DE LOS CONTRATOS
 
-- **Para desplegar Contratos  en Ethereum Sepolia (hardhat):**
+- **Desplegamos los Contratos  en Ethereum Sepolia (hardhat):**
 ```bash
  hh deploy --network sepolia
 ```
