@@ -33,25 +33,32 @@ La tasa de intercambio se basa únicamente en el suministro total de los tokens,
 No hay un sistema para agregar o retirar liquidez, lo que limita las funcionalidades de un DEX más completo.
 
 No maneja tarifas ni incentivos para proveedores de liquidez, lo cual es una característica común en los DEX modernos.
-Función Principal
+- **Función Principal**
 
 swap(address _tokenA, address _tokenB, address _to, uint256 _amount):  Permite intercambiar una cantidad específica de un token ERC20 por otro ERC20. Estos son sus parámetros:
--_tokenA: Dirección del contrato del token que el usuario desea intercambiar.
-_tokenB: Dirección del contrato del token que el usuario desea recibir.
-_to: Dirección del destinatario de los tokens _tokenA.
-_amount: Cantidad del token _tokenA que se va a intercambiar.
-Si las direcciones de ambos tokens son iguales, se revierte la transacción. El tipo de cambio se calcula basándose en la relación entre el suministro total de los tokens A y B. Se verifica que el balance del remitente tenga suficiente cantidad de _tokenA y que el destinatario tenga suficiente cantidad de _tokenB para recibir.
+- **-_tokenA:** Dirección del contrato del token que el usuario desea intercambiar.
+- **_tokenB:** Dirección del contrato del token que el usuario desea recibir.
+- **_to:** Dirección del destinatario de los tokens _tokenA.
+- **_amount:** Cantidad del token _tokenA que se va a intercambiar.
 
-Errores personalizados
-Insuficient_Balance: Se emitiria cuando el balance del usuario no es suficiente para realizar la operación.
-Unsoported_Token: Se emitiria cuando uno de los tokens involucrados en la operación no es reconocido o soportado por el contrato. 
-Same_Token: Se emitiria cuando se intenta intercambiar un token por sí mismo
-COMPILACION
+Si las direcciones de ambos tokens son iguales, se revierte la transacción. El tipo de cambio se calcula basándose en la relación entre el suministro total de los tokens A y B.
+ Se verifica que el balance del remitente tenga suficiente cantidad de _tokenA y que el destinatario tenga suficiente cantidad de _tokenB para recibir.
+
+### Errores personalizados
+- **Insuficient_Balance:** Se emitiria cuando el balance del usuario no es suficiente para realizar la operación.
+- **Unsoported_Token:** Se emitiria cuando uno de los tokens involucrados en la operación no es reconocido o soportado por el contrato. 
+- **Same_Token:** Se emitiria cuando se intenta intercambiar un token por sí mismo.
+
+###COMPILACION
 Ejecutar el siguiente comando en tu terminal
+```bash
 npm run compile
+```
 
 Ejecutar el test
+```bash
 npm run test
+```
 (Esto ejecutará el test para verificar el comportamiento de los contratos)
 
  
