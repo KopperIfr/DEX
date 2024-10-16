@@ -30,11 +30,11 @@ Una ventaja del contrato es que permite la administración del mismo, los tokens
 Este contrato permite realizar intercambios entre dos tokens ERC20 de manera descentralizada. Facilita swaps simples y directos entre tokens en función de la cantidad de tokens disponibles (asumidos como liquidez).
 
 
-- **Función Principal**
+**Función Principal**
 
-swap(address _tokenA, address _tokenB, address _to, uint256 _amount):  
+**swap(address _tokenA, address _tokenB, address _to, uint256 _amount):  
 
-Permite intercambiar una cantidad específica de un token ERC20 por otro ERC20. Estos son sus parámetros:
+- Permite intercambiar una cantidad específica de un token ERC20 por otro ERC20. Estos son sus parámetros:
 
 - **-_tokenA:** Dirección del contrato del token que el usuario desea intercambiar.
 - **_tokenB:** Dirección del contrato del token que el usuario desea recibir.
