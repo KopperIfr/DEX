@@ -69,35 +69,10 @@ hh test
 
  
 ### DESPLIEGUE DE LOS CONTRATOS
-Networks disponibles:
-Ethereum Sepolia
-
-New RPC URL: https://sepolia.infura.io/v3/
-
-Chain ID: 11155111
-Currency symbol: SepoliaETH
-
-Block explorer: https://sepolia.etherscan.io/
-
-Faucet: https://sepoliafaucet.com/
-
-Binance Smart Chain (testnet)
-
-Network: Smart Chain – Testnet
-
-New RPC URL: https://data-seed-prebsc-1-s1.binance.org:8545/
-
-Chain ID: 97
-
-Currency symbol: BNB
-
-Block explorer: https://testnet.bscscan.com
-
-Faucet: https://testnet.bnbchain.org/faucet-smart
 
 - **Para desplegar Contratos  en Ethereum Sepolia (hardhat):**
 ```bash
- hh deploy --network ethereum_sepolia_testnet
+ hh deploy --network sepolia
 ```
 
 ## Verificaciones de los contratos:
