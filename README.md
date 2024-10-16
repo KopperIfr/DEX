@@ -49,14 +49,15 @@ Si las direcciones de ambos tokens son iguales, se revierte la transacción. El 
 - **Unsoported_Token:** Se emitiria cuando uno de los tokens involucrados en la operación no es reconocido o soportado por el contrato. 
 - **Same_Token:** Se emitiria cuando se intenta intercambiar un token por sí mismo.
 
-### COMPILACION
-Ejecutar el siguiente comando en tu terminal
+### COMANDOS USADOS
+
+Compilar contratos
 ```bash
  hh compile
 ```
 Limpiar Cache
 ```bash
-hh cleant
+hh clean
 ```
 
 Ejecutar el test
@@ -64,8 +65,6 @@ Ejecutar el test
 hh test
 ```
 ![alt text](https://github.com/KopperIfr/DEX/blob/main/images/local-test.png "Logo Title Text 1")
-
-(Esto ejecutará el test para verificar el comportamiento de los contratos)
 
  
 ### DESPLIEGUE DE LOS CONTRATOS
@@ -77,7 +76,8 @@ hh test
 
 ## Verificaciones de los contratos:
 
-Los contratos no se verificaran con el comando "verify" de hardhat, lo hemos hecho usando una funcion en el codigo llamada verify()
+No hemos vereificado los contratos con el comando "verify" de hardhat, 
+lo hemos hecho usando una funcion en el codigo llamada **verify()**
 
 TokenA: https://sepolia.etherscan.io/address/0x2114DDf9Af5EB807D08FDE3e9597fdDC77F897fF
 
