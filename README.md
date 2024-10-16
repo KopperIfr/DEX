@@ -77,6 +77,8 @@ hh test
 
 ## Verificaciones de los contratos:
 
+Los contratos no se verificaran con el comando "verify" de hardhat, lo hemos hecho usando una funcion en el codigo llamada verify()
+
 TokenA: https://sepolia.etherscan.io/address/0x2114DDf9Af5EB807D08FDE3e9597fdDC77F897fF
 
 TokenB: https://sepolia.etherscan.io/address/0x0f635c01838Cb5c61C14F4469312159bf6a868Ee
