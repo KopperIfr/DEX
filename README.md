@@ -27,12 +27,9 @@ Una ventaja del contrato es que permite la administración del mismo, los tokens
 
 
 ## DEX.sol
-Este contrato permite realizar intercambios entre dos tokens ERC20 de manera descentralizada. Facilita swaps simples y directos entre tokens en función de la cantidad de tokens disponibles (asumidos como liquidez). Puede utilizarse en proyectos que deban realizar swaps entre sus propios tokens ERC20 sin depender de exchanges más grandes, ecosistemas cerrados y de bajo volumen.
+Este contrato permite realizar intercambios entre dos tokens ERC20 de manera descentralizada. Facilita swaps simples y directos entre tokens en función de la cantidad de tokens disponibles (asumidos como liquidez).
 
-La tasa de intercambio se basa únicamente en el suministro total de los tokens, lo que no es representativo del valor real de mercado de los tokens.
-No hay un sistema para agregar o retirar liquidez, lo que limita las funcionalidades de un DEX más completo.
 
-No maneja tarifas ni incentivos para proveedores de liquidez, lo cual es una característica común en los DEX modernos.
 - **Función Principal**
 
 swap(address _tokenA, address _tokenB, address _to, uint256 _amount):  Permite intercambiar una cantidad específica de un token ERC20 por otro ERC20. Estos son sus parámetros:
